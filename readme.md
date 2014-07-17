@@ -2,7 +2,7 @@
 
 A tiny bit of code that allows you to add tasks to a list of to-dos, and mark them as done.
 
-My name is Willem Larsen - enjoy playing with this!
+Inspired by the curriculum at learnhowtoprogram.com. My name is Willem Larsen - enjoy playing with this!
 
 The MIT License (MIT)
 
