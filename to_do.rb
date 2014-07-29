@@ -2,22 +2,30 @@ require './lib/task'
 
 @list = []
 
+@choices = {
+			"a" => lambda {add_task},
+		   	"l" => lambda {list_tasks},
+		   	"x" => lambda {goodbye},
+		   }
+
+@choices.default = lambda {apology}
+
 def main_menu
 	loop do
 		puts "Press 'a' to add a task to 'l' to list all of your tasks."
 		puts "press 'x' to exit."
 		main_choice  = gets.chomp
-		if main_choice == 'a'
-			add_task
-		elsif main_choice == 'l'
-			list_tasks
-		elsif main_choice == 'x'
-			puts "Good-bye!"
-			exit
-		else
-			puts "\nSorry that was not a valid option\n\n"
-		end
+		@choices[main_choice].call
 	end
+end
+
+def apology
+	puts "\nSorry that was not a valid option\n\n"
+end
+
+def goodbye
+	puts "Good-bye!"
+	exit
 end
 
 def add_task
